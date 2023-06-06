@@ -1,20 +1,17 @@
 import Head from "next/head";
 import React from "react";
 
-interface dataJson {
-  name: string;
-}
 
 const Csr = () => {
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
-  const [data, setData] = React.useState<dataJson | null>(null);
-  const [isError, setIsError] = React.useState<boolean>(false);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [data, setData] = React.useState(null);
+  const [isError, setIsError] = React.useState(false);
 
   const getAllData = async () => {
     setIsLoading(true);
     try {
       const data = await fetch(
-        "https://raw.githubusercontent.com/rahmatagungj/next-js-ssg-isr-ssr-csr/master/fake-api/name.json"
+        "https://mocki.io/v1/d4867d8b-b5d5-4a48-a4ab-79131b5809b8"
       );
       const json = await data.json();
       setData(json);
@@ -42,7 +39,7 @@ const Csr = () => {
         {isError && <h2>Oops, something went wrong!</h2>}
         {data && !isError && (
           <>
-            <h2>{data.name}</h2>
+            <h2>{data[0].name}</h2>
             <p>This page is Rendering with SSG (Server Side Rendering)</p>
           </>
         )}

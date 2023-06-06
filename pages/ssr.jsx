@@ -1,10 +1,7 @@
 import Head from "next/head";
 
-interface ssrProps {
-  name: string;
-}
 
-const ssr = ({ name }: ssrProps) => {
+const ssr = ({ name }) => {
   return (
     <div>
       <Head>
@@ -20,13 +17,13 @@ const ssr = ({ name }: ssrProps) => {
 
 export async function getServerSideProps() {
   const data = await fetch(
-    "https://raw.githubusercontent.com/rahmatagungj/next-js-ssg-isr-ssr-csr/master/fake-api/name.json"
+    "https://mocki.io/v1/d4867d8b-b5d5-4a48-a4ab-79131b5809b8"
   );
   const json = await data.json();
 
   return {
     props: {
-      name: json.name,
+      name: json[0].name,
     },
   };
 }
