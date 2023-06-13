@@ -1,7 +1,6 @@
 import Head from "next/head";
 import React from "react";
 
-
 const Csr = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [data, setData] = React.useState(null);
