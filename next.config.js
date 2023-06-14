@@ -2,5 +2,6 @@
 const nextConfig = {
   output: "standalone",
   reactStrictMode: true,
+  assetPrefix: "",
 };
 module.exports = nextConfig;
